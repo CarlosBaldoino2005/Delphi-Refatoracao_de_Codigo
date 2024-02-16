@@ -1,0 +1,42 @@
+unit Refactor.Controller;
+
+interface
+
+uses
+  Refactor.Controller.Interfaces,
+  Refactor.Model.DAO.Interfaces,
+  Refactor.Model.Entities.Categoria,
+  Refactor.Model.Entities.Users;
+
+type
+  TController = class(TInterfacedObject, iController)
+    private
+    public
+      constructor Create;
+      destructor Destroy; override;
+      class function New : iController;
+      function Categorias : iModelDAOEntity<TCategoria>;
+      function Users : iModelDAOEntity<TUsers>;
+  end;
+
+implementation
+
+{ TController }
+
+constructor TController.Create;
+begin
+
+end;
+
+destructor TController.Destroy;
+begin
+
+  inherited;
+end;
+
+class function TController.New: iController;
+begin
+  Result := Self.Create;
+end;
+
+end.

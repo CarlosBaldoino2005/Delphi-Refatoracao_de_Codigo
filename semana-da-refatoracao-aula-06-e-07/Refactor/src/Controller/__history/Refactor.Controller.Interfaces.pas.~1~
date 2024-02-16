@@ -1,0 +1,7 @@
+unit Refactor.Controller.Interfaces;
+
+interface
+
+implementation
+
+end.

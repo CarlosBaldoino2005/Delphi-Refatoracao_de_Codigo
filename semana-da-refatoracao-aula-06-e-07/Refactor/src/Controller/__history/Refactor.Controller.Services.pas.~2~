@@ -1,0 +1,37 @@
+unit Refactor.Controller.Services;
+
+interface
+
+uses
+    Recfactor.Controller.Interfaces;
+
+type
+  TControllerServices = class(TInterfacedObject, iControllerServices)
+    private
+    public
+      constructor Create;
+      destructor Destroy; override;
+      class function New : iControllerServices;
+  end;
+
+implementation
+
+{ TControllerServices }
+
+constructor TControllerServices.Create;
+begin
+
+end;
+
+destructor TControllerServices.Destroy;
+begin
+
+  inherited;
+end;
+
+class function TControllerServices.New: iControllerServices;
+begin
+  Result := Self.Create;
+end;
+
+end.

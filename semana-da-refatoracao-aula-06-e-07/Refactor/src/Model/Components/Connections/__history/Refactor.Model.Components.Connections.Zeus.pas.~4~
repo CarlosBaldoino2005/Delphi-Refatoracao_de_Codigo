@@ -1,0 +1,37 @@
+unit Refactor.Model.Components.Connections.Zeus;
+
+interface
+
+uses
+  Refactor.Model.Components.Connections.Interfaces;
+
+type
+  TModelComponentsConnectionsZeus = class(TInterfacedObject, iModelComponentsConnections)
+    private
+    public
+      constructor Create;
+      destructor Destroy; override;
+      class function New : iModelComponentsConnections;
+  end;
+
+implementation
+
+{ TModelComponentsConnectionsZeus }
+
+constructor TModelComponentsConnectionsZeus.Create;
+begin
+
+end;
+
+destructor TModelComponentsConnectionsZeus.Destroy;
+begin
+
+  inherited;
+end;
+
+class function TModelComponentsConnectionsZeus.New: iModelComponentsConnections;
+begin
+  Result := Self.Create;
+end;
+
+end.

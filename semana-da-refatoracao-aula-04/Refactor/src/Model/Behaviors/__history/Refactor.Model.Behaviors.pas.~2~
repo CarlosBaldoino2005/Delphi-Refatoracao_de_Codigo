@@ -1,0 +1,37 @@
+unit Refactor.Model.Behaviors;
+
+interface
+
+type
+  TModelBehaviors = class
+    private
+    public
+      constructor Create;
+      destructor Destroy; override;
+  end;
+
+var
+  ModelBehaviors : TModelBehaviors;
+
+implementation
+
+{ TModelBehaviors }
+
+constructor TModelBehaviors.Create;
+begin
+
+end;
+
+destructor TModelBehaviors.Destroy;
+begin
+
+  inherited;
+end;
+
+initialization
+  ModelBehaviors := TModelBehaviors.Create;
+
+finalization
+  ModelBehaviors.DisposeOf;
+
+end.

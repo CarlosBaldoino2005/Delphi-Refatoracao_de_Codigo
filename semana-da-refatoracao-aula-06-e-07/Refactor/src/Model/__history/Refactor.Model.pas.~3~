@@ -1,0 +1,37 @@
+unit Refactor.Model;
+
+interface
+
+uses
+    Refactor.Model.Interfaces;
+
+type
+  TRefactorModel = class(TInterfacedObject, iModelInterface)
+    private
+    public
+      constructor Create;
+      destructor Destroy; override;
+      class function New : iModelInterface;
+  end;
+
+implementation
+
+{ TModel }
+
+constructor TRefactorModel.Create;
+begin
+
+end;
+
+destructor TRefactorModel.Destroy;
+begin
+
+  inherited;
+end;
+
+class function TRefactorModel.New: iModelInterface;
+begin
+  Result := Self.Create;
+end;
+
+end.

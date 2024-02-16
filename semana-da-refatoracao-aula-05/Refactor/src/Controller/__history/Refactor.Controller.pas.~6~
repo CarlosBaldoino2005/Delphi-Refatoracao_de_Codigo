@@ -1,0 +1,47 @@
+unit Refactor.Controller;
+
+interface
+
+uses
+  Refactor.Controller.Interfaces;
+
+type
+  TController = class(TInterfacedObject, iController)
+    private
+      FEntities : iControllerEntities;
+    public
+      constructor Create;
+      destructor Destroy; override;
+      class function New : iController;
+      function Entities : iControllerEntities;
+  end;
+
+implementation
+
+{ TController }
+
+constructor TController.Create;
+begin
+
+end;
+
+destructor TController.Destroy;
+begin
+
+  inherited;
+end;
+
+function TController.Entities: iControllerEntities;
+begin
+  if not Assigned(FEntities) then
+    FEntities := TControllerEntities.New;
+
+  Result := FEntities;
+end;
+
+class function TController.New: iController;
+begin
+  Result := Self.Create;
+end;
+
+end.

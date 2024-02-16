@@ -1,0 +1,102 @@
+unit Refactor.Model.Entities.Categoria;
+
+interface
+
+uses
+  Vcl.Graphics,
+  System.SysUtils;
+
+type
+   TCategoria = class
+    private
+      FDESCRICAO: string;
+      FID_CATEGORIA: Integer;
+      FINDICE_ICONE: Integer;
+      FICONE: TBitmap;
+    public
+        constructor Create;
+        destructor Destroy; override;
+        function ID_CATEGORIA ( aValue : Integer ) : TCategoria; overload;
+        function ID_CATEGORIA : Integer; overload;
+        function DESCRICAO ( aValue : String ) : TCategoria; overload;
+        function DESCRICAO : String; overload;
+        function ICONE ( aValue : TBitmap ) : TCategoria; overload;
+        function ICONE : TBitmap; overload;
+        function INDICE_ICONE ( aValue : Integer ) : TCategoria; overload;
+        function INDICE_ICONE : Integer; overload;
+    end;
+
+implementation
+
+{ TCategoria }
+
+constructor TCategoria.Create;
+begin
+
+end;
+
+function TCategoria.DESCRICAO(aValue: String): TCategoria;
+begin
+  Result := Self;
+  FDESCRICAO := aValue;
+end;
+
+function TCategoria.DESCRICAO: String;
+begin
+  if Trim(FDESCRICAO) = '' then
+    raise Exception.Create('Informe a descricao da categoria');
+
+  Result := FDESCRICAO;
+end;
+
+destructor TCategoria.Destroy;
+begin
+
+  inherited;
+end;
+
+function TCategoria.getDESCRICAO: string;
+begin
+
+  Result := FDESCRICAO;
+end;
+
+function TCategoria.getID_CATEGORIA: Integer;
+begin
+  if FID_CATEGORIA <= 0 then
+    raise Exception.Create('ID da Categoria não pode ser Zero');
+
+  Result := FID_CATEGORIA;
+end;
+
+function TCategoria.ICONE: TBitmap;
+begin
+
+end;
+
+function TCategoria.ICONE(aValue: TBitmap): TCategoria;
+begin
+
+end;
+
+function TCategoria.ID_CATEGORIA: Integer;
+begin
+
+end;
+
+function TCategoria.ID_CATEGORIA(aValue: Integer): TCategoria;
+begin
+
+end;
+
+function TCategoria.INDICE_ICONE(aValue: Integer): TCategoria;
+begin
+
+end;
+
+function TCategoria.INDICE_ICONE: Integer;
+begin
+
+end;
+
+end.

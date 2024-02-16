@@ -1,0 +1,125 @@
+unit uFormPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Grids,
+  Vcl.DBGrids, uDmDados, Vcl.ExtCtrls;
+
+type
+  TForm1 = class(TForm)
+    DBGrid1: TDBGrid;
+    DataSource1: TDataSource;
+    Button1: TButton;
+    Edit1: TEdit;
+    Image1: TImage;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+  private
+    { Private declarations }
+    procedure BehaviorException( Sender : TObject; E: Exception);
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+uses
+  cCategoria;
+
+{$R *.dfm}
+
+procedure TForm1.BehaviorException(Sender: TObject; E: Exception);
+begin
+  MessageDlg(E.Message, mtWarning, [mbOK], 0);
+  //TLog.New.Gravar(E.Message);
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  Categoria : TCategoria;
+  vErro : String;
+begin
+  Categoria := TCategoria.Create(DataModule1.FDConnection1);
+  try
+    DataSource1.DataSet := Categoria.ListarCategoria;
+  finally
+    Categoria.DisposeOf;
+  end;
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+var
+  Categoria : TCategoria;
+  vErro : String;
+begin
+  Categoria := TCategoria.Create(DataModule1.FDConnection1);
+  try
+    Categoria.DESCRICAO := Edit1.Text;
+    Categoria.ICONE := Image1.Picture.Bitmap;
+    Categoria.INDICE_ICONE := 1;
+
+    if not Categoria.Inserir(vErro) then
+      MessageDlg(vErro, mtWarning, [mbOK], 0);
+
+    DataSource1.DataSet := Categoria.ListarCategoria;
+  finally
+    Categoria.DisposeOf;
+  end;
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+var
+  Categoria : TCategoria;
+  vErro : String;
+begin
+  Categoria := TCategoria.Create(DataModule1.FDConnection1);
+  try
+    Categoria.ID_CATEGORIA := DataSource1.DataSet.FieldByName('ID_CATEGORIA').AsInteger;
+    Categoria.DESCRICAO := Edit1.Text;
+    Categoria.ICONE := Image1.Picture.Bitmap;
+    Categoria.INDICE_ICONE := 1;
+
+    if not Categoria.Alterar(vErro) then
+      MessageDlg(vErro, mtWarning, [mbOK], 0);
+
+    Categoria.ID_CATEGORIA := 0;
+    DataSource1.DataSet := Categoria.ListarCategoria;
+  finally
+    Categoria.DisposeOf;
+  end;
+
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+var
+  Categoria : TCategoria;
+begin
+  Categoria := TCategoria.Create(DataModule1.FDConnection1);
+  try
+    Categoria.ID_CATEGORIA := 0;// DataSource1.DataSet.FieldByName('ID_CATEGORIA').AsInteger;
+    Categoria.Excluir;
+    Categoria.ID_CATEGORIA := 0;
+    DataSource1.DataSet := Categoria.ListarCategoria;
+  finally
+    Categoria.DisposeOf;
+  end;
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  ReportMemoryLeaksOnShutdown := True;
+  Application.OnException := BehaviorException;
+end;
+
+end.

@@ -1,0 +1,37 @@
+unit Refactor.Controller.Entities;
+
+interface
+
+uses
+    Refactor.Controller.Interfaces;
+
+type
+  TControllerEntities = class(TInterfacedObject, iControllerEntities)
+    private
+    public
+      constructor Create;
+      destructor Destroy; override;
+      class function New : iControllerEntities;
+  end;
+
+implementation
+
+{ TControllerEntities }
+
+constructor TControllerEntities.Create;
+begin
+
+end;
+
+destructor TControllerEntities.Destroy;
+begin
+
+  inherited;
+end;
+
+class function TControllerEntities.New: iControllerEntities;
+begin
+  Result := Self.Create;
+end;
+
+end.

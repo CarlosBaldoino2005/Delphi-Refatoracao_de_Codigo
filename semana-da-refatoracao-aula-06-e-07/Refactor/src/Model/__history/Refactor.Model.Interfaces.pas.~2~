@@ -1,0 +1,14 @@
+unit Refactor.Model.Interfaces;
+
+interface
+
+type
+
+  iModelInterface = interface
+    ['{DA331FE1-B3FA-4671-BA29-2F317AD6EB9C}']
+
+  end;
+
+implementation
+
+end.

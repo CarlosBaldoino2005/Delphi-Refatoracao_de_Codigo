@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<TgConfig Version="3" SubLevelDisabled="False">
+  <Option Name="namespaceFolder.Refactor" Type="System.String" Value="Refactor" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.Refactor.Model" Type="System.String" Value="Refactor\Model" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.Refactor.Model.DAO" Type="System.String" Value="Refactor\Model\DAO" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.Refactor.Model.DAO.Categoria" Type="System.String" Value="Refactor\Model\DAO\Categoria" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.Refactor.Model.DAO.Users" Type="System.String" Value="Refactor\Model\DAO\Users" Category="General" IsBrowsable="False" />
+  <Option Name="Gendoc.Images" Type="System.Boolean" Value="True" Category="General" IsBrowsable="False" />
+  <Option Name="Gendoc.NavigationTree" Type="System.Boolean" Value="True" Category="General" IsBrowsable="False" />
+  <Option Name="Gendoc.LaunchBrowser" Type="System.Boolean" Value="True" Category="General" IsBrowsable="False" />
+  <Option Name="Gendoc.OutputFolder" Type="System.String" Value="C:\Users\thuli\Desktop\Semana Refatoração\Refactor\out\doc" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.uFormPrincipal" Type="System.String" Value="uFormPrincipal" Category="General" IsBrowsable="False" />
+</TgConfig>

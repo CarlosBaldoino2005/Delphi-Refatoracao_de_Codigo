@@ -1,0 +1,39 @@
+unit Refactor.Model.Entities.Categoria;
+
+interface
+
+uses
+  Vcl.Graphics;
+
+type
+  TCategoria = class
+  private
+    FDESCRICAO: string;
+    FID_CATEGORIA: Integer;
+    FINDICE_ICONE: Integer;
+    FICONE: TBitmap;
+  public
+    constructor Create;
+    destructor Destroy; override;
+    property ID_CATEGORIA: Integer read FID_CATEGORIA write FID_CATEGORIA;
+    property DESCRICAO: string read FDESCRICAO write FDESCRICAO;
+    property ICONE: TBitmap read FICONE write FICONE;
+    property INDICE_ICONE: Integer read FINDICE_ICONE write FINDICE_ICONE;
+  end;
+
+implementation
+
+{ TCategoria }
+
+constructor TCategoria.Create;
+begin
+
+end;
+
+destructor TCategoria.Destroy;
+begin
+
+  inherited;
+end;
+
+end.

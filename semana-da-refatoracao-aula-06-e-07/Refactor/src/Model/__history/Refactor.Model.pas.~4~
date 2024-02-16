@@ -1,0 +1,40 @@
+unit Refactor.Model;
+
+interface
+
+uses
+    Refactor.Model.Interfaces,
+    Refactor.Model.DAO.Factory;
+
+type
+  TRefactorModel = class(TInterfacedObject, iModelInterface)
+    private
+      FDAO : iModelDAOFactory;
+    public
+      constructor Create;
+      destructor Destroy; override;
+      class function New : iModelInterface;
+      function DAO : iModelDAOFactory;
+  end;
+
+implementation
+
+{ TModel }
+
+constructor TRefactorModel.Create;
+begin
+
+end;
+
+destructor TRefactorModel.Destroy;
+begin
+
+  inherited;
+end;
+
+class function TRefactorModel.New: iModelInterface;
+begin
+  Result := Self.Create;
+end;
+
+end.

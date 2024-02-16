@@ -1,0 +1,19 @@
+unit Refactor.Model.Components.Connections.Interfaces;
+
+interface
+
+type
+
+  iModelComponentsConnections = interface
+    ['{40D3E554-99A1-4001-83DF-D7E8BBB85405}']
+    function Active ( aValue : Boolean ) : iModelComponentsConnections;
+    function SQLClear : iModelComponentsConnections;
+    function SQL ( aValue : String ) : iModelComponentsConnections;
+    function AddParam ( aParam : String; aValue : Variant ) : iModelComponentsConnections;
+    function ExecSQL : iModelComponentsConnections;
+    function Open : iModelComponentsConnections;
+  end;
+
+implementation
+
+end.

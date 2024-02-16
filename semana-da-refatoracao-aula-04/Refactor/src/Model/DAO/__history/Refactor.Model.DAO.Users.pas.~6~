@@ -1,0 +1,104 @@
+unit Refactor.Model.DAO.Users;
+
+interface
+
+uses
+  Refactor.Model.Entities.Users,
+  Refactor.Model.Components.Connections.Interfaces,
+  Data.DB;
+
+type
+  TModelDAOUsers = class(TInterfacedObject, iModelDAOEntity<TUSERS>)
+    private
+      FConnection : iModelComponentsConnections;
+      FDataSet : TDataSource;
+      FEntity : TUSERS;
+    public
+      constructor Create;
+      destructor Destroy; override;
+      class function New : iModelDAOEntity<TUSERS>;
+      function DataSet ( aValue : TDataSource ) : iModelDAOEntity<TUSERS>;
+      function Delete : iModelDAOEntity<TUSERS>;
+      function Get : iModelDAOEntity<TUSERS>;
+      function Insert : iModelDAOEntity<TUSERS>;
+      function This : TUSERS;
+      function Update : iModelDAOEntity<TUSERS>;
+  end;
+
+implementation
+
+uses
+  Refactor.Model.Components.Connections.Firedac;
+
+{ TModelDAOUsers }
+
+constructor TModelDAOUsers.Create;
+begin
+  FEntity := TUSERS.Create;
+  FConnection := TModelComponentsConnectionsFiredac.New;
+end;
+
+function TModelDAOUsers.DataSet(aValue: TDataSource): iModelDAOEntity<TUSERS>;
+begin
+  Result := Self;
+  FDataSet := aValue;
+  FDataSet.DataSet := FConnection.DataSet;
+end;
+
+function TModelDAOUsers.Delete: iModelDAOEntity<TUSERS>;
+begin
+  Result := Self;
+  try
+    FConnection
+      .Active(False)
+      .SQLClear
+      .SQL('DELETE FROM USERS')
+      .SQL('WHERE ID = :ID')
+      .AddParam('ID', FEntity.ID)
+    .ExecSQL;
+  except on ex:exception do
+    raise Exception.Create('Erro ao Excluir Usuário: ' + ex.Message);
+  end;
+end;
+
+destructor TModelDAOUsers.Destroy;
+begin
+  FEntity.DisposeOf;
+  inherited;
+end;
+
+function TModelDAOUsers.Get: iModelDAOEntity<TUSERS>;
+begin
+  Result := Self;
+  try
+    FConnection
+      .Active(False)
+      .SQLClear
+      .SQL('SELECT * FROM USERS')
+    .Open;
+  except on ex:exception do
+    raise Exception.Create('Erro ao Consultar Usuarios: ' + ex.Message);
+  end;
+end;
+
+function TModelDAOUsers.Insert: iModelDAOEntity<TUSERS>;
+begin
+
+end;
+
+class function TModelDAOUsers.New: iModelDAOEntity<TUSERS>;
+begin
+
+end;
+
+function TModelDAOUsers.This: TUSERS;
+begin
+
+end;
+
+function TModelDAOUsers.Update: iModelDAOEntity<TUSERS>;
+begin
+
+end;
+
+end.

@@ -1,0 +1,101 @@
+unit Refactor.Model.Components.Connections.Firedac;
+
+interface
+
+uses
+  FireDAC.Stan.Intf,
+  FireDAC.Stan.Option,
+  FireDAC.Stan.Error,
+  FireDAC.UI.Intf,
+  FireDAC.Phys.Intf,
+  FireDAC.Stan.Def,
+  FireDAC.Stan.Pool,
+  FireDAC.Stan.Async,
+  FireDAC.Phys,
+  FireDAC.Phys.SQLite,
+  FireDAC.Phys.SQLiteDef,
+  FireDAC.Stan.ExprFuncs,
+  FireDAC.Phys.SQLiteWrapper.Stat,
+  FireDAC.VCLUI.Wait,
+  Data.DB,
+  FireDAC.Comp.Client,
+  Refactor.Model.Components.Connections.Interfaces;
+
+type
+  TModelComponentsConnectionsFiredac = class(TInterfacedObject, iModelComponentsConnections)
+    private
+      FConnection : TFDConnection;
+      FQuery : TFDQuery;
+    public
+      constructor Create;
+      destructor Destroy; override;
+      class function New : iModelComponentsConnections;
+      function Active ( aValue : Boolean ) : iModelComponentsConnections;
+      function AddParam ( aParam : String; aValue : Variant ) : iModelComponentsConnections;
+      function ExecSQL : iModelComponentsConnections;
+      function Open : iModelComponentsConnections;
+      function SQL ( aValue : String ) : iModelComponentsConnections;
+      function SQLClear : iModelComponentsConnections;
+  end;
+
+implementation
+
+{ TModelComponentsConnectionsFiredac }
+
+function TModelComponentsConnectionsFiredac.Active(
+  aValue: Boolean): iModelComponentsConnections;
+begin
+  Result := Self;
+end;
+
+function TModelComponentsConnectionsFiredac.AddParam(aParam: String;
+  aValue: Variant): iModelComponentsConnections;
+begin
+
+end;
+
+constructor TModelComponentsConnectionsFiredac.Create;
+begin
+  FConnection := TFDConnection.Create(nil);
+  FQuery := TFDQuery.Create(nil);
+  FQuery.Connection := FConnection;
+  FConnection.Params.DriverID := 'SQLite';
+  FConnection.Params.Database := 'C:\Users\thuli\Desktop\Semana Refatoração\Refactor\database\refactordb.db3';
+  FConnection.Params.Add('LockingMode=Normal');
+  FConnection.Connected;
+end;
+
+destructor TModelComponentsConnectionsFiredac.Destroy;
+begin
+  FQuery.DisposeOf;
+  FConnection.DisposeOf;
+  inherited;
+end;
+
+function TModelComponentsConnectionsFiredac.ExecSQL: iModelComponentsConnections;
+begin
+
+end;
+
+class function TModelComponentsConnectionsFiredac.New: iModelComponentsConnections;
+begin
+  Result := Self.Create;
+end;
+
+function TModelComponentsConnectionsFiredac.Open: iModelComponentsConnections;
+begin
+
+end;
+
+function TModelComponentsConnectionsFiredac.SQL(
+  aValue: String): iModelComponentsConnections;
+begin
+
+end;
+
+function TModelComponentsConnectionsFiredac.SQLClear: iModelComponentsConnections;
+begin
+
+end;
+
+end.

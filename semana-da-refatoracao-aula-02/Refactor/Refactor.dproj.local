@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021/01/16 13:50:46.000.996,=C:\Users\thuli\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/03/27 13:38:03.000.251,=C:\Users\thuli\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2021/04/26 13:57:10.000.836,=C:\Users\thuli\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/04/26 13:57:34.000.777,C:\Users\thuli\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\thuli\Desktop\Semana Refatoração\Refactor\uFormPrincipal.pas</Transaction>
+    <Transaction>2021/04/26 13:57:34.000.777,C:\Users\thuli\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\thuli\Desktop\Semana Refatoração\Refactor\uFormPrincipal.dfm</Transaction>
+    <Transaction>2021/04/26 13:57:39.000.811,C:\Users\thuli\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\thuli\Desktop\Semana Refatoração\Refactor\Refactor.dproj</Transaction>
+    <Transaction>2021/04/28 10:38:45.193,=C:\Users\thuli\Desktop\Semana da Refatoração - Aula 01\Refactor\cCategoria.pas</Transaction>
+    <Transaction>2021/04/28 10:38:45.412,=C:\Users\thuli\Desktop\Semana da Refatoração - Aula 01\Refactor\uDmDados.pas</Transaction>
+    <Transaction>2021/04/28 10:42:26.184,=C:\Users\thuli\Desktop\Semana da Refatoração - Aula 01\Refactor\Unit1.pas</Transaction>
+    <Transaction>2021/04/28 10:43:01.670,C:\Users\thuli\Desktop\Semana da Refatoração - Aula 01\Refactor\src\Model\Entities\Refactor.Model.Entities.Categoria.pas=C:\Users\thuli\Desktop\Semana da Refatoração - Aula 01\Refactor\Unit1.pas</Transaction>
+    <Transaction>2021/04/28 10:45:08.890,=C:\Users\thuli\Desktop\Semana da Refatoração - Aula 01\Refactor\Unit1.pas</Transaction>
+    <Transaction>2021/04/28 10:45:22.086,C:\Users\thuli\Desktop\Semana da Refatoração - Aula 01\Refactor\src\Model\DAO\Refactor.Model.DAO.Categoria.pas=C:\Users\thuli\Desktop\Semana da Refatoração - Aula 01\Refactor\Unit1.pas</Transaction>
+    <Transaction>2021/04/28 10:58:31.458,C:\Users\thuli\Desktop\Semana da Refatoração - Aula 01\Refactor\cCategoria.pas=</Transaction>
+  </Transactions>
+</BorlandProject>
